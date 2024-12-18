@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        h1{
+            font-size: 140px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            top: 20%;
+            transform: translate(-50%, -50%);
+            color: #fdc447;
+        }
+        .back{
+            background-image: url("/background.jpg");
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="back">
+            <h1 id="datetime">11:00</h1>
+        </div>
+    </div>
+    <script>
+        setInterval(setTime, 1000);
+        setTime();
+        function setTime(){
+            var dt = new Date();
+            time = dt.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit", second:"2-digit"});
+            document.getElementById('datetime').innerHTML = time;
+        }
+    </script>
+</body>
+</html>
